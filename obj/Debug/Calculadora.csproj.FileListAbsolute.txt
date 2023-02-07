@@ -1,0 +1,24 @@
+C:\Users\Gabriel\Área de Trabalho\C# Aulas-Cursos\Aulas C# zatec\ProjetosDefinitivos\Calculadora\bin\Debug\Calculadora.exe.config
+C:\Users\Gabriel\Área de Trabalho\C# Aulas-Cursos\Aulas C# zatec\ProjetosDefinitivos\Calculadora\bin\Debug\Calculadora.exe
+C:\Users\Gabriel\Área de Trabalho\C# Aulas-Cursos\Aulas C# zatec\ProjetosDefinitivos\Calculadora\bin\Debug\Calculadora.pdb
+C:\Users\Gabriel\Área de Trabalho\C# Aulas-Cursos\Aulas C# zatec\ProjetosDefinitivos\Calculadora\obj\Debug\Calculadora.csproj.AssemblyReference.cache
+C:\Users\Gabriel\Área de Trabalho\C# Aulas-Cursos\Aulas C# zatec\ProjetosDefinitivos\Calculadora\obj\Debug\Calculadora.csproj.SuggestedBindingRedirects.cache
+C:\Users\Gabriel\Área de Trabalho\C# Aulas-Cursos\Aulas C# zatec\ProjetosDefinitivos\Calculadora\obj\Debug\Calculadora.FrmCalculadora.resources
+C:\Users\Gabriel\Área de Trabalho\C# Aulas-Cursos\Aulas C# zatec\ProjetosDefinitivos\Calculadora\obj\Debug\Calculadora.Properties.Resources.resources
+C:\Users\Gabriel\Área de Trabalho\C# Aulas-Cursos\Aulas C# zatec\ProjetosDefinitivos\Calculadora\obj\Debug\Calculadora.csproj.GenerateResource.cache
+C:\Users\Gabriel\Área de Trabalho\C# Aulas-Cursos\Aulas C# zatec\ProjetosDefinitivos\Calculadora\obj\Debug\Calculadora.csproj.CoreCompileInputs.cache
+C:\Users\Gabriel\Área de Trabalho\C# Aulas-Cursos\Aulas C# zatec\ProjetosDefinitivos\Calculadora\obj\Debug\Calculadora.exe
+C:\Users\Gabriel\Área de Trabalho\C# Aulas-Cursos\Aulas C# zatec\ProjetosDefinitivos\Calculadora\obj\Debug\Calculadora.pdb
+C:\Projeto\Calculadora\bin\Debug\Calculadora.exe.config
+C:\Projeto\Calculadora\bin\Debug\Calculadora.exe
+C:\Projeto\Calculadora\bin\Debug\Calculadora.pdb
+C:\Projeto\Calculadora\obj\Debug\Calculadora.csproj.AssemblyReference.cache
+C:\Projeto\Calculadora\obj\Debug\Calculadora.csproj.SuggestedBindingRedirects.cache
+C:\Projeto\Calculadora\obj\Debug\Calculadora.FrmCalculadora.resources
+C:\Projeto\Calculadora\obj\Debug\Calculadora.Properties.Resources.resources
+C:\Projeto\Calculadora\obj\Debug\Calculadora.csproj.GenerateResource.cache
+C:\Projeto\Calculadora\obj\Debug\Calculadora.csproj.CoreCompileInputs.cache
+C:\Projeto\Calculadora\obj\Debug\Calculadora.exe
+C:\Projeto\Calculadora\obj\Debug\Calculadora.pdb
+C:\Projeto\Calculadora\obj\Debug\Calculadora.FrmLogin.resources
+C:\Projeto\Calculadora\obj\Debug\Calculadora.FrmLista.resources
