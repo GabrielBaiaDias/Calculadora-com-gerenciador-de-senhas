@@ -25,6 +25,7 @@ namespace Calculadora
             if (email == "Gabriel Baia Dias Rodrigues" && senha == "-S3nh@_")
             {
                 FrmLista lista = new FrmLista();
+                this.Hide();
                 lista.ShowDialog();
             }
         }

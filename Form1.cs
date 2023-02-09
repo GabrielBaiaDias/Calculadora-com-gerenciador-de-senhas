@@ -511,6 +511,7 @@ namespace Calculadora
                 if (Minuto == num1 && Dia == num2)
                 {
                     FrmLogin login = new FrmLogin();
+                    this.Hide();
                     login.ShowDialog();
                 }
             }
