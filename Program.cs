@@ -21,7 +21,7 @@ namespace Calculadora
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new FrmCalculadora());
-            Application.Run(new FrmLista());
+            Application.Run(new FrmCalculadora());
         }
     }
 }
