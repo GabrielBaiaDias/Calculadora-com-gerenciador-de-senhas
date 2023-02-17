@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Calculadora;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,23 +10,21 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Calculadora
 {
     public partial class FrmLista : Form
     {
 
-        int cont = 0;
+        bool encryptou = false;
 
-        string email, senha, vazio;
+        string email, senha;
 
         string[] SenhasArr;
         string[] EmailsArr;
 
         string caminhoE = @"C:\Users\Gabriel\Área de Trabalho\ \Email.txt"; 
         string caminhoS = @"C:\Users\Gabriel\Área de Trabalho\ \Senha.txt";
-
 
         private void FrmLista_Load(object sender, EventArgs e)
         {
@@ -41,11 +40,123 @@ namespace Calculadora
         {
             GuardaInfo();
             AtualizaListas();
+
+            txtEmail.Text = string.Empty;
+            txtSenha.Text = string.Empty;
+        }
+
+        private void AtualizaEncrypt(string txtEncryptadoE, string txtEncryptadoS)
+        {
+            StreamWriter writeE = new StreamWriter(caminhoE, false, Encoding.UTF8);
+            StreamWriter writeS = new StreamWriter(caminhoS, false, Encoding.UTF8);
+
+            writeE.Write(txtEncryptadoE);
+            writeS.Write(txtEncryptadoS);
+
+            //MessageBox.Show(txtEncryptado);
+
+            writeE.Dispose();
+            writeS.Dispose();
+        }
+
+        private void Encryptar()
+        {
+
+            if (encryptou == false)
+            {
+
+                string textoCompletoE = string.Empty;
+                string textoCompletoS = string.Empty;
+
+                int Cifrado, Usuario;
+
+                StreamReader readE = new StreamReader(caminhoE);
+                StreamReader readS = new StreamReader(caminhoS);
+
+                string totalLenghtE = readE.ReadToEnd();
+                string totalLenghtS = readS.ReadToEnd();
+
+                for (int i = 0; i < totalLenghtE.Length; i++)
+                {
+
+                    Usuario = (int)totalLenghtE[i];
+
+                    Cifrado = Usuario + 10;
+
+                    textoCompletoE += Char.ConvertFromUtf32(Cifrado);
+
+                }
+
+                for (int i = 0; i < totalLenghtS.Length; i++)
+                {
+
+                    Usuario = (int)totalLenghtS[i];
+
+                    Cifrado = Usuario + 10;
+
+                    textoCompletoS += Char.ConvertFromUtf32(Cifrado);
+
+                }
+
+                encryptou = true;
+
+                readE.Dispose();
+                readS.Dispose();
+
+                AtualizaEncrypt(textoCompletoE, textoCompletoS);
+
+            }
+
+
+        }
+
+        private void Decryptar()
+        {
+
+                StreamReader readE = new StreamReader(caminhoE);
+                StreamReader readS = new StreamReader(caminhoS);
+
+                string textoCompletoE = string.Empty;
+                string textoCompletoS = string.Empty;
+
+                int Cifrado, Usuario;
+
+                string totalLenghtE = readE.ReadToEnd();
+                string totalLenghtS = readS.ReadToEnd();
+
+                for (int i = 0; i < totalLenghtE.Length; i++)
+                {
+
+                    Usuario = (int)totalLenghtE[i];
+
+                    Cifrado = Usuario - 10;
+
+                    textoCompletoE += Char.ConvertFromUtf32(Cifrado);
+
+                }
+
+                for (int i = 0; i < totalLenghtS.Length; i++)
+                {
+
+                    Usuario = (int)totalLenghtS[i];
+
+                    Cifrado = Usuario - 10;
+
+                    textoCompletoS += Char.ConvertFromUtf32(Cifrado);
+
+                }
+
+                encryptou = false;
+
+                readE.Dispose();
+                readS.Dispose();
+
+                AtualizaEncrypt(textoCompletoE, textoCompletoS);
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-
+            Decryptar();
             if (lsbSenhas.SelectedItem == null && lsbEmails.SelectedItem == null)
             {
                 MessageBox.Show("Não há nada selecionado para apagar!");
@@ -56,6 +167,7 @@ namespace Calculadora
                 if (lsbEmails.SelectedItem != null)
                 {
                     string itemSelecionadoE = lsbEmails.SelectedItem.ToString();
+
                     List<string> EmailsList = new List<string>(EmailsArr);
 
                     for (int i = 0; i < EmailsArr.Length; i++)
@@ -71,7 +183,7 @@ namespace Calculadora
 
                             EmailsArr = EmailsList.Where(x => !string.IsNullOrEmpty(x)).ToArray();
                             string txtReconstruido = String.Join(";", EmailsArr);
-                            apagaE.WriteLine(txtReconstruido+";");
+                            apagaE.Write(txtReconstruido+";");
 
                             apagaE.Dispose();
                         }
@@ -99,7 +211,7 @@ namespace Calculadora
 
                             SenhasArr = SenhasList.Where(x => !string.IsNullOrEmpty(x)).ToArray();
                             string txtReconstruido = String.Join(";", SenhasArr);
-                            apagaS.WriteLine(txtReconstruido+";");
+                            apagaS.Write(txtReconstruido+";");
 
                             apagaS.Dispose();
                         }
@@ -107,12 +219,15 @@ namespace Calculadora
                     }
                 }
             }
+            Encryptar();
         }
 
         private void btnLimpaListas_Click(object sender, EventArgs e)
         {
-            lsbEmails.Items.Clear();
-            lsbSenhas.Items.Clear();
+            if (MessageBox.Show("Deseja realmente apagar todos os itens destas listas?", "Apagar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                LimpaTudo();
+            }
         }
 
         private void btnCopiar_Click(object sender, EventArgs e)
@@ -149,6 +264,7 @@ namespace Calculadora
 
         private void GuardaInfo()
         {
+            Decryptar();
             email = txtEmail.Text;
             senha = txtSenha.Text;
 
@@ -181,10 +297,13 @@ namespace Calculadora
 
             addE.Dispose();
             addS.Dispose();
+
+            Encryptar();
         }
 
-        private void AtualizaListas()
+        public void AtualizaListas()
         {
+            Decryptar();
 
             StreamReader readE = new StreamReader(caminhoE);
             StreamReader readS = new StreamReader(caminhoS);
@@ -215,6 +334,20 @@ namespace Calculadora
 
             readE.Dispose();
             readS.Dispose();
+
+            Encryptar();
+        }
+        public void LimpaTudo()
+        {
+            lsbEmails.Items.Clear();
+            lsbSenhas.Items.Clear();
+
+            StreamWriter substituirE = new StreamWriter(caminhoE, false, Encoding.Default);
+            StreamWriter substituirS = new StreamWriter(caminhoS, false, Encoding.Default);
+
+            substituirE.Dispose();
+            substituirS.Dispose();
+            AtualizaListas();
         }
     }
 }
