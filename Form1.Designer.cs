@@ -520,9 +520,9 @@
             this.pnTemas.Controls.Add(this.panel1);
             this.pnTemas.Controls.Add(this.rb1);
             this.pnTemas.Controls.Add(this.btnAplicarTema);
-            this.pnTemas.Location = new System.Drawing.Point(0, 98);
+            this.pnTemas.Location = new System.Drawing.Point(0, 111);
             this.pnTemas.Name = "pnTemas";
-            this.pnTemas.Size = new System.Drawing.Size(331, 366);
+            this.pnTemas.Size = new System.Drawing.Size(328, 360);
             this.pnTemas.TabIndex = 31;
             this.pnTemas.Visible = false;
             // 

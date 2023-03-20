@@ -740,7 +740,7 @@ namespace Calculadora
 
             btnResultado.ForeColor = Color.FromArgb(64, 64, 64);
 
-            preVisuConta.ForeColor = Color.FromArgb(78,78,78);
+            preVisuConta.ForeColor = Color.DarkGray;
             btnTema.ForeColor = Color.White;
             btnMemoria.ForeColor = Color.White;
 
