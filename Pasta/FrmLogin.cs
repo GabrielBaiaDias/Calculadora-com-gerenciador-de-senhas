@@ -19,10 +19,10 @@ namespace Calculadora
 
         private void btnEntrar_Click(object sender, EventArgs e)
         {
-            string email = txtEmail.Text;
+            string usuario = txtEmail.Text;
             string senha = txtSenha.Text;
 
-            if (email == "Gabriel Baia Dias Rodrigues" && senha == "-S3nh@_")
+            if (usuario == "usuario" && senha == "Senha")
             {
                 FrmLista lista = new FrmLista();
                 this.Hide();
