@@ -23,8 +23,8 @@ namespace Calculadora
         string[] SenhasArr;
         string[] EmailsArr;
 
-        string caminhoE = @"C:\Users\Gabriel\Área de Trabalho\ \Email.txt"; 
-        string caminhoS = @"C:\Users\Gabriel\Área de Trabalho\ \Senha.txt";
+        string caminhoE = @"..."; 
+        string caminhoS = @"...";
 
         private void FrmLista_Load(object sender, EventArgs e)
         {
